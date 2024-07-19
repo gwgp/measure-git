@@ -1,0 +1,8 @@
+# 导出数据库
+mysqldump -u root -p second_hand_repair_system > C:\backup\second_hand_repair_system.sql
+
+# 创建新数据库
+mysql -u root -p -e "CREATE DATABASE new_repair_system;"
+
+# 导入数据库
+mysql -u root -p new_repair_system < C:\backup\second_hand_repair_system.sql
