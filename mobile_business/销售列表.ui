@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>768</width>
-    <height>652</height>
+    <width>796</width>
+    <height>575</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -27,9 +27,57 @@
    <item row="1" column="0" colspan="2">
     <widget class="QWidget" name="widget" native="true">
      <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="0">
+       <widget class="QWidget" name="widget_1" native="true">
+        <layout class="QGridLayout" name="gridLayout_3">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>仓库</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QRadioButton" name="radioButton_8">
+           <property name="text">
+            <string>不限</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QRadioButton" name="radioButton_2">
+           <property name="text">
+            <string>二手机</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QRadioButton" name="radioButton">
+           <property name="text">
+            <string>新机</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
       <item row="0" column="1">
-       <widget class="QWidget" name="widget_5" native="true">
+       <widget class="QWidget" name="widget_2" native="true">
         <layout class="QGridLayout" name="gridLayout_5">
+         <item row="1" column="1">
+          <widget class="QRadioButton" name="radioButton_5">
+           <property name="text">
+            <string>已付款，已到货</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_3">
+           <property name="text">
+            <string>商品状态</string>
+           </property>
+          </widget>
+         </item>
          <item row="1" column="0">
           <widget class="QRadioButton" name="radioButton_6">
            <property name="text">
@@ -37,90 +85,37 @@
            </property>
           </widget>
          </item>
-         <item row="0" column="0">
-          <widget class="QLabel" name="label_3">
-           <property name="text">
-            <string>所属门店</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-      </item>
-      <item row="0" column="0">
-       <widget class="QWidget" name="widget_3" native="true">
-        <layout class="QGridLayout" name="gridLayout_3">
-         <item row="1" column="0">
-          <widget class="QRadioButton" name="radioButton">
-           <property name="text">
-            <string>不限</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="0">
-          <widget class="QLabel" name="label">
-           <property name="text">
-            <string>渠道</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QWidget" name="widget_10" native="true">
-        <layout class="QGridLayout" name="gridLayout_8">
-         <item row="3" column="3">
-          <widget class="QLineEdit" name="lineEdit_4"/>
-         </item>
          <item row="3" column="0">
-          <widget class="QRadioButton" name="radioButton_19">
+          <widget class="QRadioButton" name="radioButton_7">
            <property name="text">
-            <string>不限</string>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="1">
-          <widget class="QLineEdit" name="lineEdit_5"/>
-         </item>
-         <item row="0" column="0" colspan="4">
-          <widget class="QLabel" name="label_10">
-           <property name="text">
-            <string>维修完成时间</string>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="2">
-          <widget class="QLabel" name="label_4">
-           <property name="text">
-            <string>~</string>
+            <string>已付款，未到货</string>
            </property>
           </widget>
          </item>
         </layout>
        </widget>
       </item>
-      <item row="0" column="2">
-       <widget class="QWidget" name="widget_8" native="true">
+      <item row="1" column="0">
+       <widget class="QWidget" name="widget_4" native="true">
         <layout class="QGridLayout" name="gridLayout_6">
          <item row="1" column="1">
           <widget class="QRadioButton" name="radioButton_15">
            <property name="text">
-            <string>100以下</string>
+            <string>1000-2000</string>
            </property>
           </widget>
          </item>
          <item row="2" column="0">
           <widget class="QRadioButton" name="radioButton_27">
            <property name="text">
-            <string>100-500</string>
+            <string>2000-3000</string>
            </property>
           </widget>
          </item>
          <item row="2" column="1">
           <widget class="QRadioButton" name="radioButton_28">
            <property name="text">
-            <string>500-1000</string>
+            <string>3000-4000</string>
            </property>
           </widget>
          </item>
@@ -134,87 +129,76 @@
          <item row="0" column="0" colspan="2">
           <widget class="QLabel" name="label_8">
            <property name="text">
-            <string>维修价格区间</string>
+            <string>入库价格区间</string>
            </property>
           </widget>
          </item>
          <item row="3" column="1">
           <widget class="QRadioButton" name="radioButton_31">
            <property name="text">
-            <string>2000以上</string>
+            <string>5000以上</string>
            </property>
           </widget>
          </item>
          <item row="3" column="0">
           <widget class="QRadioButton" name="radioButton_30">
            <property name="text">
-            <string>1500-2000</string>
+            <string>4000-5000</string>
            </property>
           </widget>
          </item>
         </layout>
        </widget>
       </item>
-      <item row="1" column="0">
-       <widget class="QWidget" name="widget_9" native="true">
+      <item row="1" column="1">
+       <widget class="QWidget" name="widget_5" native="true">
         <layout class="QGridLayout" name="gridLayout_7">
-         <item row="3" column="3">
-          <widget class="QLineEdit" name="lineEdit_3"/>
+         <item row="1" column="1">
+          <widget class="QRadioButton" name="radioButton_17">
+           <property name="text">
+            <string>1000-2000</string>
+           </property>
+          </widget>
          </item>
-         <item row="3" column="0">
+         <item row="2" column="0">
+          <widget class="QRadioButton" name="radioButton_29">
+           <property name="text">
+            <string>2000-3000</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QRadioButton" name="radioButton_32">
+           <property name="text">
+            <string>3000-4000</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
           <widget class="QRadioButton" name="radioButton_18">
            <property name="text">
             <string>不限</string>
            </property>
           </widget>
          </item>
-         <item row="3" column="1">
-          <widget class="QLineEdit" name="lineEdit_2"/>
-         </item>
-         <item row="0" column="0" colspan="4">
+         <item row="0" column="0" colspan="2">
           <widget class="QLabel" name="label_9">
            <property name="text">
-            <string>入库时间</string>
+            <string>销售价格区间</string>
            </property>
           </widget>
          </item>
-         <item row="3" column="2">
-          <widget class="QLabel" name="label_2">
+         <item row="3" column="1">
+          <widget class="QRadioButton" name="radioButton_33">
            <property name="text">
-            <string>~</string>
+            <string>5000以上</string>
            </property>
           </widget>
          </item>
-        </layout>
-       </widget>
-      </item>
-      <item row="1" column="2">
-       <widget class="QWidget" name="widget_13" native="true">
-        <layout class="QGridLayout" name="gridLayout_11">
-         <item row="1" column="0">
-          <widget class="QRadioButton" name="radioButton_20">
+         <item row="3" column="0">
+          <widget class="QRadioButton" name="radioButton_34">
            <property name="text">
-            <string>不限</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="3">
-          <widget class="QLineEdit" name="lineEdit_6"/>
-         </item>
-         <item row="1" column="1">
-          <widget class="QLineEdit" name="lineEdit_7"/>
-         </item>
-         <item row="1" column="2">
-          <widget class="QLabel" name="label_5">
-           <property name="text">
-            <string>~</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="0" colspan="2">
-          <widget class="QLabel" name="label_13">
-           <property name="text">
-            <string>客户取走时间</string>
+            <string>4000-5000</string>
            </property>
           </widget>
          </item>
@@ -229,13 +213,13 @@
      <property name="widgetResizable">
       <bool>true</bool>
      </property>
-     <widget class="QWidget" name="scrollAreaWidgetContents">
+     <widget class="QWidget" name="scrollAreaWidgetContents_2">
       <property name="geometry">
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>748</width>
-        <height>400</height>
+        <width>776</width>
+        <height>297</height>
        </rect>
       </property>
      </widget>

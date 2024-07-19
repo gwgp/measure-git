@@ -2,6 +2,8 @@ import os
 import re
 import shutil
 import json
+from datetime import datetime
+
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
                             QMetaObject, QObject, QPoint, QRect, Signal,
                             QSize, QStringListModel, QTime, QUrl, Qt, QBuffer, QIODevice, QByteArray)
@@ -18,17 +20,17 @@ from PySide6.QtWidgets import (QApplication, QButtonGroup, QCompleter, QGridLayo
 import sys
 import os
 import mysql.connector
-from mobile_business.kucun_shangpin import Kucun_Form
+from maintenance_business.yiwancheng import Ui_Form
 
-class Kucunopt_Form(QWidget,Kucun_Form):
+class Yiwanchengopt_Form(QWidget,Ui_Form):
     def __init__(self):
-        super(Kucunopt_Form, self).__init__()
+        super(Yiwanchengopt_Form, self).__init__()
         self.setupUi(self)
         self.widget.setHidden(True)
         self.pushButton.clicked.connect(self.open_choose)
+        self.list1=["姓名","电话号码","信息","型号","串号","密码","渠道","店铺名","备注","预估价格","工程师","手机图像","入库时间","是否修理完成"
+                    ,"是否完成订单","修理完成时间","订单完成时间"]
         self.show_kuncunlist()
-        self.list1=["手机型号","颜色","内存","串号","店铺名","仓库","渠道","外观成色","电池效率","维修情况","回收价","批发价","散客价","备注"
-                    ,"货物状态","手机图像","是否售出","入库时间"]
         self.lineEdit.setPlaceholderText("请输入手机型号")
         self.set_completer()
         self.lineEdit.textChanged.connect(self.show_kuncunlist)
@@ -41,7 +43,7 @@ class Kucunopt_Form(QWidget,Kucun_Form):
             database="second_hand_repair_system"
         )
         cursor = db.cursor()
-        cursor.execute("SELECT model FROM 手机入库 WHERE is_sold = 0")
+        cursor.execute("SELECT model FROM 维修入库 WHERE is_done = 1")
         results = cursor.fetchall()
         models = [row[0] for row in results]
 
@@ -69,45 +71,67 @@ class Kucunopt_Form(QWidget,Kucun_Form):
         )
         cursor = db.cursor()
         if search_text:
-            query = "SELECT model, color, memory, serial_number, store, warehouse, channel, appearance_condition, battery_efficiency," \
-                    "repair_status, recycle_price, wholesale_price, retail_price, notes, status, image_url, is_sold, Inbound_time " \
-                    "FROM 手机入库 WHERE is_sold = 0 AND model LIKE %s"
+            query = "SELECT name, phone_number, usr_info, model, serial_number, password, channel, store, description, estimated_cost,"\
+                     "engineer, img_url, time, is_repaired, is_done,off_time,finish_time "\
+                    "FROM 维修入库 WHERE is_done=1 AND model LIKE %s"
             cursor.execute(query, ('%' + search_text + '%',))
         else:
-            query = "SELECT model, color, memory, serial_number, store, warehouse, channel, appearance_condition, battery_efficiency," \
-                    "repair_status, recycle_price, wholesale_price, retail_price, notes, status, image_url, is_sold, Inbound_time " \
-                    "FROM 手机入库 WHERE is_sold = 0"
+            query = "SELECT name, phone_number, usr_info, model, serial_number, password, channel, store, description, estimated_cost,"\
+                     "engineer, img_url, time, is_repaired, is_done,off_time,finish_time "\
+                    "FROM 维修入库 WHERE is_done=1 "
             cursor.execute(query)
 
         results = cursor.fetchall()
         layout = QVBoxLayout()
+
         for row in results:
-            name, color, memory, entry_time,image_data  = row[0],row[1],row[2], row[17], row[15]
-            label = QLabel(f"手机型号: {name}, 手机颜色: {color}, 手机内存:{memory  },入库时间: {entry_time  }")
-            label.mouseDoubleClickEvent = lambda event, row=row: self.show_details(row)
+            img_data = row[11]
+            label = CustomLabel(row, self.list1, img_data,self)
             layout.addWidget(label)
         container = QWidget()
         container.setLayout(layout)
         self.scrollArea.setWidget(container)
         cursor.close()
         db.close()
+
+
+
+class CustomLabel(QLabel):
+    def __init__(self, row, list1,img_data, main_form, parent=None,):
+        super().__init__(parent)
+        self.row = row
+        self.setText(f"手机型号: {row[3]}, 损坏信息: {row[8]}, 预计价格: {row[9]}, 订单完成时间: {row[16]}")
+        self.list1=list1
+        self.image_data=img_data
+        self.main_form=main_form
+
+    def mouseDoubleClickEvent(self, event):
+        if event.button() == Qt.LeftButton:
+            self.show_details(self.row)
+
+    def contextMenuEvent(self, event):
+        menu = QMenu(self)
+
+        open_details_action = QAction("打开详细信息", self)
+        open_details_action.triggered.connect(lambda: self.show_details(self.row))
+        menu.addAction(open_details_action)
+
+        menu.exec_(event.globalPos())
+
     def show_details(self, row):
         details_dialog = QDialog(self)
         details_dialog.setWindowTitle("详细信息")
         layout = QVBoxLayout(details_dialog)
-
         for index, value in enumerate(row):
-            if index <= 10 or index == 13 or index==17:
+            if index <= 16 and index!=11 and index!=13 and index!=14 :
                 label = QLabel(f"{self.list1[index]}: {value}")
                 layout.addWidget(label)
         # 创建一个新的QWidget来容纳图像
         image_container = QWidget()
         image_layout = QVBoxLayout(image_container)
-
-        image_data = row[15]
-        if image_data:
+        if self.image_data:
             # 使用正则表达式匹配JPEG图像数据
-            image_data_list = re.findall(b'\xff\xd8.*?\xff\xd9', image_data, re.DOTALL)
+            image_data_list = re.findall(b'\xff\xd8.*?\xff\xd9', self.image_data, re.DOTALL)
             for image_data in image_data_list:
                 pixmap = QPixmap()
                 if not pixmap.loadFromData(QByteArray(image_data)):

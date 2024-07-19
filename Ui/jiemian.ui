@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout" rowstretch="1,1,1,1,1,1,1,1,0">
+  <layout class="QGridLayout" name="gridLayout" rowstretch="1,1,1,1,1,1,1,1">
    <item row="0" column="0">
     <widget class="QWidget" name="widget" native="true">
      <layout class="QHBoxLayout" name="horizontalLayout">
@@ -58,7 +58,7 @@
    <item row="1" column="0">
     <widget class="QStackedWidget" name="stackedWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="page">
       <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -213,66 +213,71 @@
    </item>
    <item row="2" column="0">
     <widget class="QWidget" name="widget_2" native="true">
-     <widget class="QLabel" name="label_2">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>54</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>业务汇总</string>
-      </property>
-     </widget>
-     <widget class="QWidget" name="">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>48</y>
-        <width>811</width>
-        <height>26</height>
-       </rect>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_6">
-       <item>
-        <widget class="QPushButton" name="jinriyingyee">
-         <property name="text">
-          <string>今日营业额</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="xianjinzhichu">
-         <property name="text">
-          <string>现金支出</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="lirunmingxi">
-         <property name="text">
-          <string>利润明细</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="yingshouzhangkuan_3">
-         <property name="text">
-          <string>应收账款</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="zaikujine">
-         <property name="text">
-          <string>在库金额</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>业务汇总</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="3">
+       <widget class="QPushButton" name="zaikujine">
+        <property name="text">
+         <string>在库金额</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QPushButton" name="xianjinzhichu">
+        <property name="text">
+         <string>现金支出</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="3">
+       <widget class="QLabel" name="label_7">
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLabel" name="label_4">
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="2">
+       <widget class="QLabel" name="label_5">
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QPushButton" name="jinriyingyee">
+        <property name="text">
+         <string>今日营业额</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QPushButton" name="lirunmingxi">
+        <property name="text">
+         <string>利润明细</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </item>
    <item row="3" column="0">
@@ -293,7 +298,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="peijianyewu_2">
+       <widget class="QPushButton" name="peijianyewu_3">
         <property name="text">
          <string>配件业务</string>
         </property>
@@ -307,7 +312,7 @@
      <property name="currentIndex">
       <number>2</number>
      </property>
-     <widget class="QWidget" name="stackedWidget_4Page1" native="true">
+     <widget class="QWidget" name="page_5">
       <layout class="QHBoxLayout" name="horizontalLayout_8">
        <item>
         <widget class="QPushButton" name="jinriruku">
@@ -353,7 +358,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="page_5">
+     <widget class="QWidget" name="page_6">
       <layout class="QHBoxLayout" name="horizontalLayout_9">
        <item>
         <widget class="QPushButton" name="pushButton">
@@ -399,7 +404,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="page_6">
+     <widget class="QWidget" name="page_7">
       <layout class="QHBoxLayout" name="horizontalLayout_10">
        <item>
         <widget class="QPushButton" name="pushButton_12">
